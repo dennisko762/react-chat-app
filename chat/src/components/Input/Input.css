@@ -16,6 +16,12 @@ textarea:focus,
 select:focus {
   outline: none;
 }
+.attachFileIcon {
+  display: flex;
+  color: darkgray;
+  z-index: 2;
+  align-items: center;
+}
 
 .sendButton {
   color: #fff !important;

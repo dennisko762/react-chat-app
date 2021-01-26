@@ -27,16 +27,17 @@ io.on("connect",(socket)=>{
         if(error) return callback(error)
 
         socket.join(user.room)
-
+        
         io.to(user.room).emit("roomData",{room:user.room, user:getUserInRoom(user.room)})
 
+        
         socket.emit("message",{user:"admin",text:`${user.name}, welcome to the room ${user.room}`})
-        //broadcast sends message to everyone except the user
        
-        socket.broadcast.to(user.room).emit("message",{user:"admin",text:`${user.name}, has joined`})
+        //broadcast sends message to everyone except the user
+       socket.broadcast.to(user.room).emit("message",{user:"admin",text:`${user.name}, has joined`})
 
         callback();
-        console.log(user.id+"has joined")
+        console.log(user.name+" has joined")
 
 
     });
